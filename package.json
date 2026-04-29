@@ -1,13 +1,34 @@
 {
   "name": "tabadlab-mcp-server",
   "version": "0.1.0",
+  "description": "MCP server for the Tabadlab Debt-for-Climate Swaps (DCS) Database",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
     "tabadlab-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tabadlab",
+    "debt-for-climate",
+    "climate-finance",
+    "dcs"
+  ],
+  "author": "Tabadlab",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shezis/tabadlab-mcp-server.git"
+  },
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts"
   },
