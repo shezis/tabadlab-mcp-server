@@ -6,6 +6,44 @@ The DCS Database democratises data on debt-for-climate swaps — financial agree
 
 ---
 
+## Install into Claude Desktop
+
+### Option 1 — One-line script (easiest)
+
+Requires [Node.js ≥ 18](https://nodejs.org) to be installed.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/shezis/tabadlab-mcp-server/main/install.sh | bash
+```
+
+Then **restart Claude Desktop**. Done.
+
+### Option 2 — Smithery (one-click)
+
+Browse and install from [smithery.ai/servers/tabadlab-mcp-server](https://smithery.ai/servers/tabadlab-mcp-server) — click **"Add to Claude"**.
+
+### Option 3 — Manual config
+
+Add the following to your `claude_desktop_config.json`:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "tabadlab-dcs": {
+      "command": "npx",
+      "args": ["-y", "tabadlab-mcp-server"]
+    }
+  }
+}
+```
+
+Restart Claude Desktop. The tools will appear automatically.
+
+---
+
 ## Tools
 
 | Tool | Description |
@@ -79,33 +117,6 @@ npm run dev
 ```
 
 ---
-
-## Using with Claude Desktop
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "tabadlab-dcs": {
-      "command": "node",
-      "args": ["/absolute/path/to/tabadlab-mcp-server/dist/index.js"]
-    }
-  }
-}
-```
-
-Or if installed globally via npm:
-
-```json
-{
-  "mcpServers": {
-    "tabadlab-dcs": {
-      "command": "tabadlab-mcp"
-    }
-  }
-}
-```
 
 ## Using with VS Code / GitHub Copilot
 

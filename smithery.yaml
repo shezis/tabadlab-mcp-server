@@ -1,0 +1,18 @@
+# Smithery registry configuration
+# https://smithery.ai
+#
+# Once the package is published to npm, submit this repo at:
+#   https://smithery.ai/new
+# Users will then see an "Add to Claude" button on the Smithery page.
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: "npx",
+      args: ["-y", "tabadlab-mcp-server"]
+    })
